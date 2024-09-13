@@ -1,4 +1,5 @@
 package pr1;
+import java.lang.*;
 import java.util.Scanner;
 public class Pr1 {
     public static void main(String[] args) {
