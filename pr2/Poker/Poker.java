@@ -33,7 +33,7 @@ public class Poker {
     }
 
     public static void add_suit(ArrayList<Card> deck, String suit) {
-        for (int i = 1; i < 10; i++){
+        for (int i = 2; i <= 10; i++){
             Card card = new Card(suit, String.valueOf(i));
             deck.add(card);
         }
@@ -51,7 +51,7 @@ public class Poker {
     public static ArrayList<Card> choose_hand(ArrayList<Card> deck) {
         ArrayList<Card> res = new ArrayList<>();
         if (deck.size() < 5) {
-            System.out.println("hell nah...");
+            System.out.println("No, not happening");
             return new ArrayList<>();
         }
         for (int i=0; i<5; i++){

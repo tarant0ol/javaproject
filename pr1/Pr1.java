@@ -1,5 +1,6 @@
 package pr1;
 import java.lang.*;
+import java.util.HashMap;
 import java.util.Scanner;
 public class Pr1 {
     public static void main(String[] args) {
@@ -14,11 +15,14 @@ public class Pr1 {
         System.out.println("Среднее арефметическое " + (sum_of_elements / list.length));
 
         // № 5
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Текущий аргумент командной строки: " + sc.next());
+        for (int i=0; i < args.length; i++) {
+            System.out.print((i+1) + "элемент командной строки: " + args[i] + "\n");
+        }
 
         // № 7
         System.out.println("Факториал 5 = " + factorial(5));
+
+
     }
 
     public static int factorial(int num) {
