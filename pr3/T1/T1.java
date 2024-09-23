@@ -3,7 +3,7 @@ package pr3.T1;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class t1 {
+public class T1 {
     public static void main(String[] args) {
         ArrayList<Integer> list_Random = new ArrayList<>();
         ArrayList<Integer> list_random = new ArrayList<>();
