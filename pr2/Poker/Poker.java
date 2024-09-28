@@ -22,14 +22,6 @@ public class Poker {
         System.out.println(choose_hand(deck));
         System.out.println(choose_hand(deck));
 
-
-
-
-
-
-
-
-
     }
 
     public static void add_suit(ArrayList<Card> deck, String suit) {
