@@ -72,7 +72,7 @@ public class SortingStudentByGPATester {
         int i = start - 1;
 
         for (int j = start; j < end; j++) {
-            if (comparator.compare(list[j], pivot) < 0) {
+            if (comparator.compare(list[j], pivot) > 0) {
                 i++;
                 Student temp = list[j];
                 list[j] = list[i];
