@@ -1,18 +1,18 @@
-package pr5.T1;
+package pr12.T1;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
-public class T2 extends JPanel{
+public class T1 extends JPanel{
 
-    public static int width = 500;
-    public static int height = 500;
+    public static int width = 960;
+    public static int height = 540;
 
     private void doDrawing(Graphics g) {
         Random rand = new Random();
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 20; i++) {
             int r = rand.nextInt(3);
             switch (r){
                 case 0:
@@ -45,9 +45,11 @@ public class T2 extends JPanel{
     }
 
     public static void main(String[] args) {
-        T2 m=new T2();
+        T1 m=new T1();
         JFrame f=new JFrame();
         f.add(m);
+        //f.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //f.setUndecorated(true);
         f.setResizable(false);
         f.setSize(width,height);
         f.setVisible(true);
