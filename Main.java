@@ -10,6 +10,22 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
+        /* Stack Test
+        Stack stack = new Stack(5);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+
+        System.out.println("==== Stack:");
+        stack.printStack();
+
+        int poped = stack.pop();
+        System.out.println("Poped: " + poped);
+
+        System.out.println("==== Stack:");
+        stack.printStack();
+         */
+
         ScriptEngineManager manager = new ScriptEngineManager();
 
         // Get the list of all available engines

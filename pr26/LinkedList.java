@@ -1,19 +1,21 @@
-package pr17;
+package pr26;
 
-public class LinkedList {
-    LinkedNode head;
+import java.util.Iterator;
+
+public class LinkedList implements Iterable<Integer> {
+    Node head;
 
     public LinkedList() {
         this.head = null;
     }
 
-    public void insert(String full_name, int age){
-        LinkedNode new_node = new LinkedNode(full_name, age);
+    public void insert(int num){
+        Node new_node = new Node(num);
         new_node.next = null;
         if (this.head == null) {
             this.head = new_node;
         } else {
-            LinkedNode last = this.head;
+            Node last = this.head;
             while (last.next != null) {
                 last = last.next;
             }
@@ -21,16 +23,16 @@ public class LinkedList {
         }
     }
 
-    public void remove(String full_name, int age) {
+    public void remove(int num) {
         if (this.head == null) {
             System.out.println("empty list");
         } else {
-            if (this.head.full_name.equals(full_name) && this.head.age == age) {
+            if (this.head.num == num) {
                 this.head = head.next;
             } else {
-                LinkedNode curr_node = this.head;
+                Node curr_node = this.head;
                 while (curr_node.next != null) {
-                    if (curr_node.next.age == age && curr_node.next.full_name.equals(full_name)){
+                    if (curr_node.next.num == num){
                         curr_node.next = curr_node.next.next;
                         return;
                     }
@@ -45,10 +47,10 @@ public class LinkedList {
         if (this.head == null) {
             System.out.println("Linked list is empty");
         } else {
-            LinkedNode current_node = this.head;
+            Node current_node = this.head;
 
             while (current_node != null){
-                System.out.println(current_node);
+                System.out.print(current_node + ", ");
                 current_node = current_node.next;
             }
             System.out.println();
@@ -61,5 +63,9 @@ public class LinkedList {
 
     public Boolean isEmpty() {
         return head == null;
+    }
+
+    public Iterator<Integer> iterator() {
+        return new LinkedIterator(this);
     }
 }

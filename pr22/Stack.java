@@ -12,14 +12,14 @@ public class Stack {
     }
 
     public void push(int num) {
-        if (this.top == capacity - 1) {
+        if (isFull()) {
             throw new StackOverflow("Cannot push: not enough space");
         }
         arr[++top] = num;
     }
 
     public int pop() {
-       if (this.top == -1) {
+       if (isEmpty()) {
             throw new StackEmpty("Cannot pop: stack is empty");
        }
        return arr[top--];
@@ -33,4 +33,7 @@ public class Stack {
         }
         System.out.println();
     }
+
+    public boolean isFull() { return this.top == capacity - 1; }
+    public boolean isEmpty() { return this.top == -1; }
 }
