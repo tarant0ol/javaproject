@@ -1,4 +1,4 @@
-package pr21;
+package pr21_spiski2;
 
 import java.util.Random;
 

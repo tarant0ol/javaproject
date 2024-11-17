@@ -1,8 +1,8 @@
-package pr30;
+package pr30_2;
 
 public class Main {
     public static void main(String[] args) {
-        Tree tree = new Tree();
+        BSTree tree = new BSTree();
 
         tree.print();
 
@@ -12,10 +12,16 @@ public class Main {
         tree.insert(15);
         tree.insert(1);
         tree.insert(4);
+        tree.insert(3);
+        tree.insert(1);
+        tree.insert(5);
+
+        System.out.println("Tree node count = " + tree.nodeCount());
         tree.print();
 
         tree.delete(2);
         System.out.println("======================");
+        System.out.println("Tree node count = " + tree.nodeCount());
         tree.print();
 
     }

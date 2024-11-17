@@ -1,4 +1,4 @@
-package pr30;
+package pr30_2;
 
 public class Node {
     int data;

@@ -1,9 +1,9 @@
-package pr30;
+package pr30_2;
 
-public class Tree {
+public class BSTree {
     private Node root;
 
-    public Tree() {
+    public BSTree() {
         this.root = null;
     }
 
@@ -58,34 +58,6 @@ public class Tree {
     }
 
 
-    /*
-    public void remove(int data) {
-        if (root == null) {System.out.println("Can't"); return; }
-        if (root.data == data) {System.out.println("Can't2"); return; }
-        boolean isRight;
-
-        Node curr = root;
-        while (true) {
-            if (curr.left.data == data) {isRight = false; break;}
-            if (curr.right.data == data) {isRight = true; break;}
-            if (data < curr.data) {curr = curr.left; }
-            else { curr = curr.right; }
-        }
-        //System.out.println("Parent = " + curr + ", Onright? = " + isRight);
-
-        if (isRight) {
-            if (curr.right.right == null) { curr.right = curr.right.left; return;}
-            else if (curr.right.left == null) {curr.right = curr.right.right; return;}
-            else {
-
-            }
-        } else {
-            if (curr.left.right == null) { curr.left = curr.left.left; return;}
-            else if (curr.left.left == null) {curr.right = curr.left.right; return;}
-        }
-    }
-     */
-
     private static void walk(Node node, int depth) {
         if (node == null) { return; }
         walk(node.left, depth + 1);
@@ -95,5 +67,14 @@ public class Tree {
 
     public void print() {
         walk(this.root, 0);
+    }
+
+    public int nodeCount() {
+        return nC(this.root);
+    }
+
+    private int nC(Node curr) {
+        if (curr == null) {return 0;}
+        else { return nC(curr.left) + nC(curr.right) + 1; }
     }
 }

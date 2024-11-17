@@ -1,4 +1,4 @@
-package pr17;
+package pr17_spiski1;
 
 public class DoubleLinkedList {
     DoubleLinkedNode head;

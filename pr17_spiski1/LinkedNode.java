@@ -1,16 +1,14 @@
-package pr17;
+package pr17_spiski1;
 
-public class DoubleLinkedNode {
+public class LinkedNode {
     // student
     String full_name;
     int age;
-    DoubleLinkedNode next;
-    DoubleLinkedNode prev;
+    LinkedNode next;
 
-    public DoubleLinkedNode(String full_name, int age) {
+    public LinkedNode(String full_name, int age) {
         this.full_name = full_name;
         this.age = age;
-        this.prev = null;
         this.next = null;
     }
 

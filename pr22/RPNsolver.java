@@ -1,16 +1,19 @@
 package pr22;
 
 import javax.annotation.processing.SupportedSourceVersion;
+import java.util.Scanner;
 
 public class RPNsolver {
     public static void main(String[] args) {
         String rpn1 = "94+1-95/*728/--";
         String rpn2 = "94/12+-";
-        String rpn = "92-";
+        Scanner s = new Scanner(System.in);
+        String rpn = s.next();
         Stack stack = new Stack(rpn.length());
 
-        for (int i = 0; i < rpn.length(); i++) {
-            try {
+
+        try {
+            for (int i = 0; i < rpn.length(); i++) {
                 if (isInt(String.valueOf(rpn.charAt(i)))) {
                     stack.push(Integer.parseInt(String.valueOf(rpn.charAt(i))));
                 } else {
@@ -28,9 +31,9 @@ public class RPNsolver {
                         throw new Error();
                     }
                 }
-            } catch (StackEmpty | Error e) {
-                System.out.println("Not possible to calculate RPN");
             }
+        } catch (StackEmpty | ArithmeticException e) {
+            System.out.println("Not possible to calculate RPN");
         }
         stack.printStack();
     }

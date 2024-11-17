@@ -270,9 +270,11 @@ public class Calculator_pro extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     String s = jtf.getText();
-                    if (!s.isEmpty() && s.length() < max_el) {
+                    if (s.isEmpty()) {
+                        jtf.setText("-");
+                    } else if (s.length() < max_el) {
                         String lastchar = s.substring(s.length()-1);
-                        if (!lastchar.equals("(") && !isControl(lastchar)) {
+                        if ((!isControl(lastchar)) || lastchar.equals("")) {
                             jtf.setText(jtf.getText()+"-");
                         }
                     }
@@ -359,7 +361,7 @@ public class Calculator_pro extends JFrame {
                         jtf.setText(jtf.getText()+"(");
                     } else if (s.length() < max_el){
                         String lastchar = s.substring(s.length()-1);
-                        if (!lastchar.equals(",") && !isInt(lastchar)) {
+                        if (!lastchar.equals(".") && !isInt(lastchar)) {
                             jtf.setText(jtf.getText()+"(");
                         }
                     }
