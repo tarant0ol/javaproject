@@ -2,7 +2,6 @@ package pr27;
 
 
 import pr7.T7.Printable;
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -11,8 +10,6 @@ public class HashTab implements Printable {
 
     private final int size = 10;
     ArrayList<Map.Entry<String, Integer>> list = new ArrayList<>();
-
-
 
 
     public int hashtabHash(String key) {
