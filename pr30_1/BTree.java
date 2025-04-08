@@ -13,6 +13,11 @@ public class BTree {
         this.root = new Node(data);
     }
 
+    public BTree(String name, int data) {
+        this.root = new Node(data);
+        root.setName(name);
+    }
+
     // adding to full
     public void insert(int data) {
         if (this.root == null) { this.root = new Node(data); }

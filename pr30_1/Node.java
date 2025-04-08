@@ -1,6 +1,7 @@
 package pr30_1;
 
 public class Node {
+    String name;
     int data;
     Node left;
     Node right;
@@ -13,8 +14,16 @@ public class Node {
 
     @Override
     public String toString() {
-        return "{" +
-                "data=" + this.data +
-                '}';
+        if (this.name == null) {
+            return "{" + this.data + "}";
+        } else {
+            return "{" +
+                    this.name + ":" + this.data +
+                    '}';
+        }
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

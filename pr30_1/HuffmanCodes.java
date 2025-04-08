@@ -2,32 +2,37 @@ package pr30_1;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 
 public class HuffmanCodes {
     public static void main(String[] args) {
-        HashMap<Integer, String> letters = new HashMap<>();
-        {
-            letters.put(12, "a");
-            letters.put(4, "b");
-            letters.put(15, "c");
-            letters.put(8, "d");
-            letters.put(25, "e");
-        }
+        HashMap<Character, Integer> letters;
+        String s = "кукушка хвалит петуха за то, что хвалит он кукушку";
+        System.out.println("Input string: " + s);
+        letters = build_map(s);
         ArrayList<BTree> array = new ArrayList<>();
-        List<Integer> keys = new ArrayList<>(letters.keySet());
-        System.out.println("Init values:");
-        for (int i = 0; i < letters.size(); i++) {
-            array.add(new BTree(keys.get(i)));
-        } System.out.println(keys);
+        System.out.println("Init frequencies:");
+        for (Character i: letters.keySet()) {
+            array.add(new BTree(i.toString(), letters.get(i)));
+        }
+        System.out.println(letters);
 
         for (int i = 0; i < letters.size()-1; i++) { step(array); }
         array.getFirst().print();
         BTree treeHuffman = array.getFirst();
 
-        for (Integer i: letters.keySet()) {
-            System.out.println(letters.get(i) + ":" + treeHuffman.leafSearch(i));
+        int word_len_sum = 0;
+        int input_word_len = 0;
+        for (Character i: letters.keySet()) {
+            String code_word = treeHuffman.leafSearch(letters.get(i));
+            word_len_sum += code_word.length();
+            input_word_len += code_word.length() * letters.get(i);
+            System.out.println(i + ":" + code_word);
         }
+
+        float mean_letter_len = (float)word_len_sum / (float)letters.size();
+        System.out.println("Mean word length = " + mean_letter_len);
+        System.out.println("input word length = " + input_word_len);
     }
 
     public static int sum(BTree[] list) {
@@ -61,6 +66,16 @@ public class HuffmanCodes {
         array.remove(mins[0]);
         array.set(array.indexOf(mins[1]), res);
     }
+
+    public static HashMap<Character, Integer> build_map(String string){
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < string.length(); i++){
+            map.put(string.charAt(i), map.getOrDefault(string.charAt(i), 0) + 1);
+        }
+        return map;
+    }
+
+
 
 
 }
