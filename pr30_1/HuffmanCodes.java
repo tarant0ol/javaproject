@@ -7,7 +7,8 @@ import java.util.HashMap;
 public class HuffmanCodes {
     public static void main(String[] args) {
         HashMap<Character, Integer> letters;
-        String s = "кукушка хвалит петуха за то, что хвалит он кукушку";
+        //String s1 = "кукушка хвалит петуха за то, что хвалит он кукушку";
+        String s = "can you can a can as a canner can can a can?";
         System.out.println("Input string: " + s);
         letters = build_map(s);
         ArrayList<BTree> array = new ArrayList<>();
@@ -24,7 +25,7 @@ public class HuffmanCodes {
         int word_len_sum = 0;
         int input_word_len = 0;
         for (Character i: letters.keySet()) {
-            String code_word = treeHuffman.leafSearch(letters.get(i));
+            String code_word = treeHuffman.leafSearch(i.toString());
             word_len_sum += code_word.length();
             input_word_len += code_word.length() * letters.get(i);
             System.out.println(i + ":" + code_word);

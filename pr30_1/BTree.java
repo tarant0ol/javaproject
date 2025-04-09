@@ -9,14 +9,15 @@ public class BTree {
         this.root = null;
     }
 
-    public BTree(int data) {
-        this.root = new Node(data);
+    public BTree(String name, int data) {
+        this.root = new Node(name, data);
     }
 
-    public BTree(String name, int data) {
-        this.root = new Node(data);
-        root.setName(name);
+    public BTree(int data) {
+        this.root = new Node("", data);
+
     }
+
 
     // adding to full
     public void insert(int data) {
@@ -130,17 +131,21 @@ public class BTree {
         walk(this.root, 0);
     }
 
-    public String leafSearch(int data) {
+    public String leafSearch(String name) {
         if (this.root == null) { System.err.println("Cannot search in empty list"); return "";}
-        else { return recSearch(this.root, data, ""); }
+        else { return recSearch(this.root, name, ""); }
     }
 
-    private String recSearch(Node curr, int data, String path) {
-        if (curr == null) { return ""; }
-        else if (curr.data == data && isleaf(curr)) { return path; }
+    private String recSearch(Node curr, String name, String path) {
+
+        if (curr == null || curr.name == null || name == null) { return ""; }
+
+        else if (curr.name.equals(name) && isleaf(curr)) {
+
+            return path; }
         else {
-            String p1 = recSearch(curr.left, data, path+"0");
-            String p2 = recSearch(curr.right, data, path+"1");
+            String p1 = recSearch(curr.left, name, path+"0");
+            String p2 = recSearch(curr.right, name, path+"1");
             if (!p1.equals("")) { return p1; }
             else if (!p2.equals("")) { return p2; }
         }
